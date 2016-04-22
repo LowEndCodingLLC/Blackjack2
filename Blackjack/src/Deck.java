@@ -10,15 +10,17 @@ public class Deck extends ArrayList<Card> {
 
 	public Deck() {
 		for (String suit : suits) {
-			for (int i = 1; i < 14; i++) {
-				File temp=new File(suit+i+".jpg");
+			for (int i = 2; i < 4; i++) {
+				File temp=new File(suit+i+".png");
+				
 				try {
 					Image temp2= ImageIO.read(temp);
+					this.add(new Card(i, suit, temp2));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				this.add(new Card(i, suit, temp2));
+				//this.add(new Card(i, suit, temp2));
 			}
 		}
 	}

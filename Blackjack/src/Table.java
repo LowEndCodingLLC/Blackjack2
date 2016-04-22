@@ -10,6 +10,7 @@ public class Table extends JPanel{
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		deck.get(0).paintCard(g);
 		
 	}
 }

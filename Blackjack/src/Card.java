@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
 
 
@@ -43,5 +45,8 @@ public class Card {
 	}
 	public int getValue(){
 		return value;
+	}
+	public void paintCard(Graphics g) {
+		g.drawImage(front, 0, 0, null);
 	}
 }
