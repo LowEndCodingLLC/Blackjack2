@@ -6,7 +6,7 @@ public class Tester {
 	GameWindow window=new GameWindow();
 		
 		Deck deck =new Deck();
-		//deck.shuffle();
+		
 		deck.printDeck();
 	}
 
