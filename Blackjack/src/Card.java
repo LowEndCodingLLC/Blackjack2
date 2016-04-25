@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
 
 
@@ -31,11 +33,11 @@ public class Card {
 			this.rank="nine";
 		else if (value==10)
 			this.rank="ten";
-		else if (value==10)
+		else if (value==11)
 			this.rank="jack";
-		else if (value==10)
+		else if (value==12)
 			this.rank="queen";
-		else if (value==10)
+		else if (value==13)
 			this.rank="king";
 	}
 	public String toString(){
@@ -43,5 +45,8 @@ public class Card {
 	}
 	public int getValue(){
 		return value;
+	}
+	public void paintCard(Graphics g) {
+		g.drawImage(front, 0, 0, null);
 	}
 }
