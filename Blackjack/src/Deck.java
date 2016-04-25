@@ -10,7 +10,7 @@ public class Deck extends ArrayList<Card> {
 
 	public Deck() {
 		for (String suit : suits) {
-			for (int i = 2; i < 4; i++) {
+			for (int i = 1; i < 14; i++) {
 				File temp=new File(suit+i+".png");
 				
 				try {
@@ -20,20 +20,24 @@ public class Deck extends ArrayList<Card> {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				//this.add(new Card(i, suit, temp2));
+				
 			}
 		}
+		this.shuffle();
 	}
 
 	public void shuffle() {
-		ArrayList<Card> temp = new ArrayList<Card>();
-		for (int i = 0; i < 52; i++) {
-			int num = (int) (Math.random() * this.size());
-			temp.add(this.remove(num));
+		ArrayList<Card> temp = new ArrayList<Card>();//makes temporary arraylist
+		for (int i = 0; i < 52; i++) {//repeat 52 times
+			
+			int num = (int) (Math.random() * this.size());//choose random number from 0 to number of cards remaining in original
+			
+			temp.add(this.remove(num));//remove card from random location in original and add to end of temp
+			
 		}
-		this.clear();
+		//this.clear();
 		for (int i = 0; i < 52; i++) {
-			this.add(temp.get(i));
+			this.add(temp.get(i));//copy temp back to original
 		}
 	}
 

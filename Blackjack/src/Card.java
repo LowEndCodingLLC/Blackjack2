@@ -33,11 +33,11 @@ public class Card {
 			this.rank="nine";
 		else if (value==10)
 			this.rank="ten";
-		else if (value==10)
+		else if (value==11)
 			this.rank="jack";
-		else if (value==10)
+		else if (value==12)
 			this.rank="queen";
-		else if (value==10)
+		else if (value==13)
 			this.rank="king";
 	}
 	public String toString(){

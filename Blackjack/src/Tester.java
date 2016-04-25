@@ -5,9 +5,9 @@ public class Tester {
 		// TODO Auto-generated method stub
 	GameWindow window=new GameWindow();
 		
-		//Deck deck =new Deck();
+		Deck deck =new Deck();
 		//deck.shuffle();
-		//deck.printDeck();
+		deck.printDeck();
 	}
 
 }
