@@ -46,7 +46,7 @@ public class Card {
 	public int getValue(){
 		return value;
 	}
-	public void paintCard(Graphics g) {
+	public void paintCard(Graphics g) {//when called, draws card image on table
 		g.drawImage(front, 0, 0, null);
 	}
 }
