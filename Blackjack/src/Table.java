@@ -9,8 +9,8 @@ public class Table extends JPanel{
 		
 	}
 	public void paintComponent(Graphics g) {
-		super.paintComponent(g);//paints default screen
-		deck.get(0).paintCard(g);//paints card on top of default screen
+		super.paintComponent(g);//paints default background
+		deck.get(0).paintCard(g);//paints card on top of default background
 		
 	}
 }

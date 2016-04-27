@@ -9,13 +9,13 @@ public class Deck extends ArrayList<Card> {
 	private String[] suits = { "heart", "diamond", "spade", "club" };
 
 	public Deck() {
-		for (String suit : suits) {
-			for (int i = 1; i < 14; i++) {
-				File temp=new File(suit+i+".png");
+		for (String suit : suits) {//goes through all four suits
+			for (int i = 1; i < 14; i++) {//creates 14 cards for each suit
+				File temp=new File(suit+i+".png");//creates file object for front image
 				
 				try {
-					Image temp2= ImageIO.read(temp);
-					this.add(new Card(i, suit, temp2));
+					Image temp2= ImageIO.read(temp);//creates image object for front image
+					this.add(new Card(i, suit, temp2));//adds card to deck
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
