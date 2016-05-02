@@ -1,8 +1,10 @@
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
 public class GameWindow extends JFrame{
 	private Table table=new Table();
+	private playerPanel player = new playerPanel();
 	public GameWindow(){
 		setTitle("Blackjack");
 		setBounds(0,0,1000,600);

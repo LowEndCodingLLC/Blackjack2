@@ -6,7 +6,7 @@ public class Tester {
 	GameWindow window=new GameWindow();
 		
 		Deck deck =new Deck();
-		
+		Deck Hand =new Hand();
 		deck.printDeck();
 	}
 
