@@ -11,4 +11,10 @@ public class Hand extends Deck{
 		}
 		return calc;
 	}
+	public void hit(){
+		
+	}
+	public void stay(){
+		
+	}
 }
