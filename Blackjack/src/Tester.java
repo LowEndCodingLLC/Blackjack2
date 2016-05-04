@@ -8,9 +8,14 @@ public class Tester {
 	JPanel playerPanel=new JPanel();
 	
 		
+<<<<<<< HEAD
 		Deck deck =new Deck();
 		Deck Hand =new Hand();
 		deck.printDeck();
+=======
+		
+		
+>>>>>>> refs/remotes/origin/master
 	}
 
 }

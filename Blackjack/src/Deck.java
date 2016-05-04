@@ -8,23 +8,24 @@ import javax.imageio.ImageIO;
 
 public class Deck extends ArrayList<Card> {
 	private String[] suits = { "heart", "diamond", "spade", "club" };
-
-	public Deck() {
+	private Table table;
+	public Deck(Table table) {
 		for (String suit : suits) {//goes through all four suits
 			for (int i = 1; i < 14; i++) {//creates 14 cards for each suit
-				File temp=new File(suit+i+".png");//creates file object for front image
+				//File temp=new File(suit+i+".png");//creates file object for front image
 				
-				try {
-					Image temp2= ImageIO.read(temp);//creates image object for front image
-					this.add(new Card(i, suit, temp2));//adds card to deck
-				} catch (IOException e) {
+				//try {
+					//Image temp2= ImageIO.read(temp);//creates image object for front image
+					this.add(new Card(i, suit, null/**temp2**/));//adds card to deck
+			//	} catch (IOException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				//	e.printStackTrace();
+			//	}
 				
 			}
 		}
 		this.shuffle();
+		this.table=table;
 	}
 
 	public void shuffle() {
@@ -42,8 +43,8 @@ public class Deck extends ArrayList<Card> {
 		}
 	}
 
-	public void printDeck() {
-		for (int i = 0; i < 52; i++) {
+	public void print() {
+		for (int i = 0; i < this.size(); i++) {
 			System.out.println(this.get(i).toString());
 		}
 	}
