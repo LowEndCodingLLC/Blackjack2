@@ -1,6 +1,14 @@
 
 public class DealerHand extends Hand {
-	public DealerHand(){
+	private Table table;
+	public DealerHand(Table table){
+		super(table);
+		this.table=table;
+	}
+	public void resolveHand(){
+		while (this.getValue()<17){
+			this.hit();
+		}
 		
 	}
 
