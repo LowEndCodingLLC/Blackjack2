@@ -15,7 +15,7 @@ public class playerPanel extends JPanel implements ActionListener{
 		buildBoard();
 	}
 	public void buildBoard(){
-		JButton hit = new JButton();
+		JButton hit = new JButton("hit");
 		hit.setActionCommand("hit");
 		hit.setBackground(Color.white);
 		hit.addActionListener(this);
