@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+<<<<<<< HEAD
+public class Hand extends Deck{
+	public Hand(){
+		
+=======
 
 public class Hand extends ArrayList<Card>{
 	private Deck drawPile;
@@ -10,6 +15,7 @@ public class Hand extends ArrayList<Card>{
 		this.drawPile=table.getDrawPile();
 		this.dealer=table.getDealer();
 		this.clear();//clears cards generated in deck constructor(because hand extends deck, deck constructor is automatically called)
+>>>>>>> refs/remotes/origin/master
 	}
 	public int getValue(){
 		int calc=0;
