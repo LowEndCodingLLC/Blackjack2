@@ -1,10 +1,5 @@
 import java.util.ArrayList;
 
-<<<<<<< HEAD
-public class Hand extends Deck{
-	public Hand(){
-		
-=======
 
 public class Hand extends ArrayList<Card>{
 	private Deck drawPile;
@@ -15,7 +10,6 @@ public class Hand extends ArrayList<Card>{
 		this.drawPile=table.getDrawPile();
 		this.dealer=table.getDealer();
 		this.clear();//clears cards generated in deck constructor(because hand extends deck, deck constructor is automatically called)
->>>>>>> refs/remotes/origin/master
 	}
 	public int getValue(){
 		int calc=0;
@@ -25,11 +19,14 @@ public class Hand extends ArrayList<Card>{
 		return calc;
 	}
 	public void hit(){
-		int random=(int)Math.random()*drawPile.size();
-		if (this.size()>0)
-			this.add(drawPile.remove(random));
+		this.add(drawPile.remove(0));
 	}
 	public void dealersTurn(){
 		dealer.resolveHand();
+	}
+	public void print() {
+		for (int i = 0; i < this.size(); i++) {
+			System.out.println(this.get(i).toString());
+		}
 	}
 }

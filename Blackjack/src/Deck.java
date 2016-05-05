@@ -48,7 +48,4 @@ public class Deck extends ArrayList<Card> {
 			System.out.println(this.get(i).toString());
 		}
 	}
-
-	
-
 }

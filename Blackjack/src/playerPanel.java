@@ -7,7 +7,9 @@ import javax.swing.JPanel;
 
 public class playerPanel extends JPanel implements ActionListener{
 	private Table table;
+	private Hand player;
 	public playerPanel(Table table){
+		player=table.getplayer();
 		this.table=table;
 		this.setVisible(true);
 		this.setSize(100,200);
@@ -26,9 +28,10 @@ public class playerPanel extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		Object hitClicked = arg0.getSource();
 		JButton hited=((JButton)hitClicked);
-		System.out.println(hited);
 		if(hited.getActionCommand().equals("hit")){
-		//	table.get();
+			player.hit();
+			player.print();
+			System.out.println(player.getValue());
 		}
 		
 	}
