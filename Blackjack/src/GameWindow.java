@@ -11,4 +11,7 @@ public class GameWindow extends JFrame{
 		setResizable(false);
 		setVisible(true);
 	}
+	public Table getTable(){
+		return table;
+	}
 }

@@ -16,7 +16,7 @@ public class Table extends JPanel{
 	public DealerHand getDealer(){
 		return dealer;
 	}
-	public Hand getplayer(){
+	public Hand getPlayer(){
 		return player;
 	}
 	public void paintComponent(Graphics g) {

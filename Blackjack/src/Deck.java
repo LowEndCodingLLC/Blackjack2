@@ -16,10 +16,10 @@ public class Deck extends ArrayList<Card> {
 				//try {
 					//Image temp2= ImageIO.read(temp);//creates image object for front image
 					this.add(new Card(i, suit, null/**temp2**/));//adds card to deck
-			//	} catch (IOException e) {
+				//} catch (IOException e) {
 					// TODO Auto-generated catch block
-				//	e.printStackTrace();
-			//	}
+					//e.printStackTrace();
+				//}
 				
 			}
 		}
