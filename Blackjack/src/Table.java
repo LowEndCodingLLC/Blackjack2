@@ -8,7 +8,6 @@ public class Table extends JPanel{
 	private Hand player=new Hand(this);
 	public Table(){
 		this.setVisible(true);
-		this.setSize(100,200);
 		this.setBackground(Color.green);
 	}
 	public Deck getDrawPile(){
