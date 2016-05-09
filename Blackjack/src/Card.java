@@ -6,39 +6,67 @@ import java.awt.Image;
 public class Card {
 	private String suit;
 	private int value;
+	private int cardID;
 	private String rank;
 	private Image front;
 	private Image back;
-	public Card(int value,String suit,Image front){
+
+	public Card(int cardID,String suit,Image front){
 		this.suit=suit;
-		this.value=value;
+		this.cardID=cardID;
 		this.front=front;
-		if (value==1)
+		if (cardID==1){
 			this.rank="ace";
-		else if (value==2)
+			this.value=0;
+		}
+		else if (cardID==2){
 			this.rank="two";
-		else if (value==3)
+			this.value=2;
+		}
+		else if (cardID==3){
 			this.rank="three";
-		else if (value==4)
+		this.value=3;
+	}
+		else if (cardID==4){
 			this.rank="four";
-		else if (value==5)
+		this.value=4;
+}
+		else if (cardID==5){
 			this.rank="five";
-		else if (value==6)
+		this.value=5;
+	}
+		else if (cardID==6){
 			this.rank="six";
-		else if (value==7)
+		this.value=6;
+	}
+		else if (cardID==7){
 			this.rank="seven";
-		else if (value==8)
+		this.value=7;
+	}
+		else if (cardID==8){
 			this.rank="eight";
-		else if (value==9)
+		this.value=8;
+	}
+		else if (cardID==9){
 			this.rank="nine";
-		else if (value==10)
+		this.value=9;
+	}
+		else if (cardID==10){
 			this.rank="ten";
-		else if (value==11)
+		this.value=10;
+	}
+		else if (cardID==11){
 			this.rank="jack";
-		else if (value==12)
+		this.value=10;
+	}
+		else if (cardID==12){
 			this.rank="queen";
-		else if (value==13)
+		this.value=10;
+	}
+		else if (cardID==13){
 			this.rank="king";
+		this.value=10;
+	}
 	}
 	public String toString(){
 		return (rank+" of "+ suit);

@@ -17,4 +17,5 @@ public class GameWindow extends JFrame{
 	public Table getTable(){
 		return table;
 	}
+	
 }
