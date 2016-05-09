@@ -19,6 +19,13 @@ public class Table extends JPanel{
 	public Hand getPlayer(){
 		return player;
 	}
+	public void startGame(){
+		player.add(drawPile.remove(0));
+		player.add(drawPile.remove(0));
+		dealer.add(drawPile.remove(0));
+		dealer.add(drawPile.remove(0),false);
+		player.setCanHit(true);
+	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//paints default background
 
