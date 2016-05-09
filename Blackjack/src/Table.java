@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
@@ -6,7 +7,9 @@ public class Table extends JPanel{
 	private DealerHand dealer=new DealerHand(this);
 	private Hand player=new Hand(this);
 	public Table(){
-		
+		this.setVisible(true);
+		this.setSize(100,200);
+		this.setBackground(Color.green);
 	}
 	public Deck getDrawPile(){
 		return drawPile;

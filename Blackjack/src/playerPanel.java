@@ -2,6 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -13,7 +14,6 @@ public class playerPanel extends JPanel implements ActionListener{
 		this.table=table;
 		this.setVisible(true);
 		this.setSize(100,200);
-		this.setLayout(new GridLayout(1,2));
 		buildBoard();
 	}
 	public void buildBoard(){
@@ -21,7 +21,7 @@ public class playerPanel extends JPanel implements ActionListener{
 		hit.setActionCommand("hit");
 		hit.setBackground(Color.white);
 		hit.addActionListener(this);
-		this.add(hit);
+		this.add(hit, BorderLayout.PAGE_END);
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
