@@ -31,5 +31,37 @@ public class Table extends JPanel{
 
 		drawPile.get(0).paintCard(g);//paints card on top of default background		
 	}
+	public void printStatus(){
+		System.out.println("Deck size: "+drawPile.size());
+		System.out.println("-------------------------");
+		System.out.println("Player Hand:");
+		player.print();
+		System.out.println("Player score: "+player.getValue());
+		System.out.println("-------------------------");
+		System.out.println("Dealer Hand:");
+		dealer.print();
+		System.out.println("Dealer score: "+dealer.getValue());
+		System.out.println("-------------------------");
+	}
+	public void determineWinner() {
+		if (player.getValue()<=21&&dealer.getValue()<=21){		
+			if (player.getValue()>dealer.getValue()){//player wins
+				
+			}
+			else if(player.getValue()<dealer.getValue()){//dealer wins
+				
+			}
+			else{//tie
+				
+			}
+		}
+		else if (player.getValue()<=21){//dealer bust,player wins
+			
+		}
+		else{//player bust, dealer wins
+			
+		}
+			
+	}
 
 }

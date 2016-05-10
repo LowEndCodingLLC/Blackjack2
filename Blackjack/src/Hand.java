@@ -57,6 +57,7 @@ public class Hand extends ArrayList<Card>{
 	}
 	public void bust(){
 		canHit=false;
+		dealer.resolveHand();
 	}
 	
 	public void dealersTurn(){
