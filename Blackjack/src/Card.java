@@ -12,10 +12,11 @@ public class Card {
 	private Image back;
 	private Boolean faceUp;
 
-	public Card(int cardID,String suit,Image front){
+	public Card(int cardID,String suit,Image front,Image back){
 		this.suit=suit;
 		this.cardID=cardID;
 		this.front=front;
+		this.back=back;
 		if (cardID==1){
 			this.rank="ace";
 			this.value=0;
@@ -79,6 +80,9 @@ public class Card {
 		return value;
 	}
 	public void paintCard(Graphics g) {//when called, draws card image on table
-		g.drawImage(front, 0, 0, null);
+		if(faceUp)
+			g.drawImage(front, 0, 0, null);
+		else
+			g.drawImage(back,0,0,null);
 	}
 }

@@ -12,7 +12,7 @@ public class GameWindow extends JFrame{
 		add(table);
 		setResizable(false);
 		setVisible(true);
-		this.getContentPane().add(player);
+		//this.getContentPane().add(player);
 	}
 	public Table getTable(){
 		return table;

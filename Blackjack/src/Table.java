@@ -29,6 +29,7 @@ public class Table extends JPanel{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//paints default background
 
+		drawPile.get(0).setFaceUp(true);
 		drawPile.get(0).paintCard(g);//paints card on top of default background		
 	}
 	public void printStatus(){

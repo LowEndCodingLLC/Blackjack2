@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 
@@ -68,5 +69,8 @@ public class Hand extends ArrayList<Card>{
 		for (int i = 0; i < this.size(); i++) {
 			System.out.println(this.get(i).toString());
 		}
+	}
+	public void paintHand(Graphics g){
+		
 	}
 }
