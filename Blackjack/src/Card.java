@@ -10,6 +10,7 @@ public class Card {
 	private String rank;
 	private Image front;
 	private Image back;
+	private Boolean faceUp;
 
 	public Card(int cardID,String suit,Image front){
 		this.suit=suit;
@@ -67,6 +68,9 @@ public class Card {
 			this.rank="king";
 		this.value=10;
 	}
+	}
+	public void setFaceUp(Boolean temp){
+		this.faceUp=temp;
 	}
 	public String toString(){
 		return (rank+" of "+ suit);
