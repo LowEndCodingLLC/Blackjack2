@@ -14,6 +14,7 @@ public class playerPanel extends JPanel implements ActionListener{
 		this.table=table;
 		this.setVisible(true);
 		this.setSize(100,200);
+		
 		buildBoard();
 	}
 	public void buildBoard(){

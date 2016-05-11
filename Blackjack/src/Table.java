@@ -12,6 +12,7 @@ public class Table extends JPanel{
 	public Table(){
 		this.setVisible(true);
 		this.setBackground(Color.green);
+	//	this.getContentPanel().setLayout(null);
 	}
 	public Deck getDrawPile(){
 		return drawPile;
