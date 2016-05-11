@@ -49,6 +49,7 @@ public class Hand extends ArrayList<Card>{
 		if (this.getValue()>21)
 			this.bust();
 		}
+		table.repaint();
 	}
 	public void stay(){
 		canHit=false;
@@ -70,7 +71,7 @@ public class Hand extends ArrayList<Card>{
 	}
 	public void paintHand(Graphics g){
 		for (int i =0;i<this.size();i++){
-			this.get(i).paintCard(g, i, 100);
+			this.get(i).paintCard(g, (i*120)+10, 300);
 		}
 		
 	}
