@@ -79,10 +79,10 @@ public class Card {
 	public int getValue(){
 		return value;
 	}
-	public void paintCard(Graphics g) {//when called, draws card image on table
+	public void paintCard(Graphics g,int xpos, int ypos) {//when called, draws card image on table
 		if(faceUp)
-			g.drawImage(front, 0, 0, null);
+			g.drawImage(front, xpos, ypos, null);
 		else
-			g.drawImage(back,0,0,null);
+			g.drawImage(back,xpos,ypos,null);
 	}
 }

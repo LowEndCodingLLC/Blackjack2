@@ -71,6 +71,9 @@ public class Hand extends ArrayList<Card>{
 		}
 	}
 	public void paintHand(Graphics g){
+		for (int i =0;i<this.size();i++){
+			this.get(i).paintCard(g, i, 100);
+		}
 		
 	}
 }
