@@ -11,8 +11,6 @@ public class Hand extends ArrayList<Card>{
 		this.table=table;
 		this.drawPile=table.getDrawPile();
 		this.dealer=table.getDealer();
-
-
 	}
 	public boolean add(Card temp,Boolean faceUp){
 		super.add(temp);

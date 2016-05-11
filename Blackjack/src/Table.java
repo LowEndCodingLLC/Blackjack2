@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
@@ -8,7 +10,9 @@ public class Table extends JPanel{
 	private Hand player=new Hand(this);
 
 	public Table(){
-
+		this.setVisible(true);
+		this.setBackground(Color.green);
+	//	this.getContentPanel().setLayout(null);
 	}
 	public Deck getDrawPile(){
 		return drawPile;
@@ -29,11 +33,13 @@ public class Table extends JPanel{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//paints default background
 
+
 		drawPile.get(0).setFaceUp(true);
 		player.hit();
 		player.hit();
 		this.printStatus();
 		player.paintHand(g);	
+
 	}
 	public void printStatus(){
 		System.out.println("Deck size: "+drawPile.size());
