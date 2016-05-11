@@ -5,10 +5,24 @@ public class Hand extends ArrayList<Card>{
 	private Deck drawPile;
 	private Table table;
 	private DealerHand dealer;
+	private boolean canHit=false;
 	public Hand(Table table){
 		this.table=table;
 		this.drawPile=table.getDrawPile();
 		this.dealer=table.getDealer();
+	}
+	public boolean add(Card temp,Boolean faceUp){
+		super.add(temp);
+		temp.setFaceUp(faceUp);
+		return true;
+	}
+	public void setCanHit(boolean temp){
+		this.canHit=temp;
+	}
+	public boolean add(Card temp){
+		super.add(temp);
+		temp.setFaceUp(true);
+		return true;
 	}
 	public int getValue(){
 		int calc=0;
@@ -27,16 +41,25 @@ public class Hand extends ArrayList<Card>{
 		}
 		return calc;
 	}
-	public void hit(){	
-		this.add(drawPile.remove(0));
+	public void hit(){
+		
+		if(canHit){
+		this.add(drawPile.remove(0),true);
 		if (this.getValue()>21)
 			this.bust();
+		}
+	}
+	public void stay(){
+		canHit=false;
+		dealer.resolveHand();
 	}
 	public void bust(){
-		
+		canHit=false;
+		dealer.resolveHand();
 	}
 	
 	public void dealersTurn(){
+		canHit=false;
 		dealer.resolveHand();
 	}
 	public void print() {
