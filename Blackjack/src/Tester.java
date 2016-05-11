@@ -9,6 +9,7 @@ public class Tester {
 	GameWindow window=new GameWindow();
 	JPanel playerPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
 
+
 	}
 
 }

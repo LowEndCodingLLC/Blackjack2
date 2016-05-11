@@ -10,7 +10,7 @@ public class playerPanel extends JPanel implements ActionListener{
 	private Table table;
 	private Hand player;
 	public playerPanel(Table table){
-		player=table.getplayer();
+		player=table.getPlayer();
 		this.table=table;
 		this.setVisible(true);
 		this.setSize(100,200);

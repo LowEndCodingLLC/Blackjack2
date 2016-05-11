@@ -9,18 +9,33 @@ public class Hand extends ArrayList<Card>{
 		this.table=table;
 		this.drawPile=table.getDrawPile();
 		this.dealer=table.getDealer();
-		this.clear();//clears cards generated in deck constructor(because hand extends deck, deck constructor is automatically called)
 	}
 	public int getValue(){
 		int calc=0;
 		for (int i=0;i<this.size();i++ ){
-			calc+=this.get(i).getValue();
+			if (this.get(i).getValue()==0){
+				Card temp=this.remove(i);
+				if (this.getValue()>10)
+					calc+=1;
+				else
+					calc+=11;
+				this.add(i,temp);
+				
+			}
+			else
+				calc+=this.get(i).getValue();
 		}
 		return calc;
 	}
-	public void hit(){
+	public void hit(){	
 		this.add(drawPile.remove(0));
+		if (this.getValue()>21)
+			this.bust();
 	}
+	public void bust(){
+		
+	}
+	
 	public void dealersTurn(){
 		dealer.resolveHand();
 	}
