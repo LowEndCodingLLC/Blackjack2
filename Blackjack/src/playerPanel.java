@@ -31,7 +31,7 @@ public class playerPanel extends JPanel implements ActionListener{
 		JButton hited=((JButton)hitClicked);
 		if(hited.getActionCommand().equals("hit")){
 			player.hit();
-			table.printStatus();
+			//table.printStatus();
 			
 		}
 		

@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+
 import javax.swing.JPanel;
 
 public class Table extends JPanel{
@@ -24,6 +25,7 @@ public class Table extends JPanel{
 		return player;
 	}
 	public void startGame(){
+		
 		player.add(drawPile.remove(0));
 		player.add(drawPile.remove(0));
 		dealer.add(drawPile.remove(0));

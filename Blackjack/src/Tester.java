@@ -8,7 +8,7 @@ public class Tester {
 		// TODO Auto-generated method stub
 	GameWindow window=new GameWindow();
 	window.getTable().startGame();
-
+	
 
 	}
 

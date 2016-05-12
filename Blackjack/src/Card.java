@@ -74,7 +74,7 @@ public class Card {
 		this.faceUp=temp;
 	}
 	public String toString(){
-		return (rank+" of "+ suit);
+		return (rank+" of "+ suit+"(Value: "+value+")");
 	}
 	public int getValue(){
 		return value;
