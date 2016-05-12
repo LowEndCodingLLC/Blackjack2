@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+
 import javax.swing.JPanel;
 
 public class Table extends JPanel{
@@ -12,7 +13,7 @@ public class Table extends JPanel{
 	public Table(){
 		this.setVisible(true);
 		this.setBackground(Color.green);
-	//	this.getContentPanel().setLayout(null);
+	
 	}
 	public Deck getDrawPile(){
 		return drawPile;
@@ -24,6 +25,7 @@ public class Table extends JPanel{
 		return player;
 	}
 	public void startGame(){
+		
 		player.add(drawPile.remove(0));
 		player.add(drawPile.remove(0));
 		dealer.add(drawPile.remove(0));
@@ -32,7 +34,8 @@ public class Table extends JPanel{
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//paints default background
-		drawPile.get(0).paintCard(g);//paints card on top of default background	
+		player.paintHand(g);	
+
 	}
 	public void printStatus(){
 		System.out.println("Deck size: "+drawPile.size());

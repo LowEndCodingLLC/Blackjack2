@@ -12,15 +12,16 @@ public class Deck extends ArrayList<Card> {
 	public Deck(Table table) {
 		for (String suit : suits) {//goes through all four suits
 			for (int i = 1; i < 14; i++) {//creates 14 cards for each suit
-				//File temp=new File(suit+i+".png");//creates file object for front image
-				
-				//try {
-					//Image temp2= ImageIO.read(temp);//creates image object for front image
-					this.add(new Card(i, suit, null/**temp2**/));//adds card to deck
-				//} catch (IOException e) {
+				File temp=new File(suit+i+".png");//creates file object for front image
+				File backfile=new File("back.png");
+				try {
+					Image temp2= ImageIO.read(temp);//creates image object for front image
+					Image back= ImageIO.read(backfile);
+					this.add(new Card(i, suit, temp2,back));//adds card to deck
+				} catch (IOException e) {
 					// TODO Auto-generated catch block
-					//e.printStackTrace();
-				//}
+					e.printStackTrace();
+				}
 				
 			}
 		}

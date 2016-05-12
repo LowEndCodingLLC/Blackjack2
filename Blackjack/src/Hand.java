@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 
@@ -25,10 +26,15 @@ public class Hand extends ArrayList<Card>{
 		return true;
 	}
 	public int getValue(){
+		
 		int calc=0;
+		System.out.println("for loop start");
 		for (int i=0;i<this.size();i++ ){
+			int acenum=0;
 			if (this.get(i).getValue()==0){
+				
 				Card temp=this.remove(i);
+				System.out.println("recursion");
 				if (this.getValue()>10)
 					calc+=1;
 				else
@@ -39,15 +45,20 @@ public class Hand extends ArrayList<Card>{
 			else
 				calc+=this.get(i).getValue();
 		}
+		System.out.println("for loop end");
+		
 		return calc;
 	}
 	public void hit(){
+	
 		
 		if(canHit){
 		this.add(drawPile.remove(0),true);
 		if (this.getValue()>21)
 			this.bust();
 		}
+		table.repaint();
+		table.printStatus();
 	}
 	public void stay(){
 		canHit=false;
@@ -66,5 +77,11 @@ public class Hand extends ArrayList<Card>{
 		for (int i = 0; i < this.size(); i++) {
 			System.out.println(this.get(i).toString());
 		}
+	}
+	public void paintHand(Graphics g){
+		for (int i =0;i<this.size();i++){
+			this.get(i).paintCard(g, (i*120)+10, 300);
+		}
+		
 	}
 }
