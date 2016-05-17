@@ -30,7 +30,11 @@ public class Table extends JPanel{
 		player.add(drawPile.remove(0));
 		dealer.add(drawPile.remove(0));
 		dealer.add(drawPile.remove(0),false);
+		if (player.getValue()==21)
+			player.setCanHit(false);
+		else
 		player.setCanHit(true);
+		this.printStatus();
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//paints default background

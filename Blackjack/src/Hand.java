@@ -26,23 +26,25 @@ public class Hand extends ArrayList<Card>{
 		return true;
 	}
 	public int getValue(){
-		
 		int calc=0;
-		int acenum=0;
+		
 		for (int i=0;i<this.size();i++ ){
-			
+			int acenum=0;
 			if (this.get(i).getValue()==0){
-				acenum++;
+				
+				Card temp=this.remove(i);
+				System.out.println("recursion");
+				if (this.getValue()>10)
+					calc+=1;
+				else
+					calc+=11;
+				this.add(i,temp);
 				
 			}
 			else
 				calc+=this.get(i).getValue();
 		}
-		calc+=(acenum*11);
-		while(calc>21&&acenum>0){
-			calc-=10;
-			acenum--;
-		}
+		
 		
 		return calc;
 	}
