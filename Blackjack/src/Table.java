@@ -56,20 +56,20 @@ public class Table extends JPanel{
 	public void determineWinner() {
 		if (player.getValue()<=21&&dealer.getValue()<=21){		
 			if (player.getValue()>dealer.getValue()){//player wins
-				
+				System.out.println("player wins");
 			}
 			else if(player.getValue()<dealer.getValue()){//dealer wins
-				
+				System.out.println("dealer wins");
 			}
 			else{//tie
-				
+				System.out.println("tie");
 			}
 		}
 		else if (player.getValue()<=21){//dealer bust,player wins
-			
+			System.out.println("player wins by default");
 		}
 		else{//player bust, dealer wins
-			
+			System.out.println("dealer wins by default");
 		}
 			
 	}
