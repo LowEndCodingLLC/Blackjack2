@@ -28,24 +28,21 @@ public class Hand extends ArrayList<Card>{
 	public int getValue(){
 		
 		int calc=0;
-		System.out.println("for loop start");
+		int acenum=0;
 		for (int i=0;i<this.size();i++ ){
-			int acenum=0;
+			
 			if (this.get(i).getValue()==0){
-				
-				Card temp=this.remove(i);
-				System.out.println("recursion");
-				if (this.getValue()>10)
-					calc+=1;
-				else
-					calc+=11;
-				this.add(i,temp);
+				acenum++;
 				
 			}
 			else
 				calc+=this.get(i).getValue();
 		}
-		System.out.println("for loop end");
+		calc+=(acenum*11);
+		while(calc>21&&acenum>0){
+			calc-=10;
+			acenum--;
+		}
 		
 		return calc;
 	}
@@ -57,16 +54,18 @@ public class Hand extends ArrayList<Card>{
 		if (this.getValue()>21)
 			this.bust();
 		}
+		if (this.getValue()==21)
+			canHit=false;
 		table.repaint();
 		table.printStatus();
 	}
 	public void stay(){
 		canHit=false;
-		dealer.resolveHand();
+		//dealer.resolveHand();
 	}
 	public void bust(){
 		canHit=false;
-		dealer.resolveHand();
+		//dealer.resolveHand();
 	}
 	
 	public void dealersTurn(){
