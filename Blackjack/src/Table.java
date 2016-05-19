@@ -9,8 +9,12 @@ public class Table extends JPanel{
 	private Deck drawPile=new Deck(this);
 	private DealerHand dealer=new DealerHand(this);
 	private Hand player=new Hand(this);
+	private GameWindow gameWindow;
+	private playerPanel playerPanel;
 
-	public Table(){
+	public Table(GameWindow gameWindow){
+		this.gameWindow=gameWindow;
+		this.playerPanel=this.gameWindow.getPlayerPanel();
 		this.setVisible(true);
 		this.setBackground(Color.green);
 	
@@ -24,13 +28,20 @@ public class Table extends JPanel{
 	public Hand getPlayer(){
 		return player;
 	}
+	public playerPanel getPlayerPanel(){
+		return playerPanel;
+	}
 	public void startGame(){
 		
 		player.add(drawPile.remove(0));
 		player.add(drawPile.remove(0));
 		dealer.add(drawPile.remove(0));
 		dealer.add(drawPile.remove(0),false);
+		if (player.getValue()==21)
+			player.setCanHit(false);
+		else
 		player.setCanHit(true);
+		this.printStatus();
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);//paints default background
@@ -52,20 +63,20 @@ public class Table extends JPanel{
 	public void determineWinner() {
 		if (player.getValue()<=21&&dealer.getValue()<=21){		
 			if (player.getValue()>dealer.getValue()){//player wins
-				
+				System.out.println("player wins");
 			}
 			else if(player.getValue()<dealer.getValue()){//dealer wins
-				
+				System.out.println("dealer wins");
 			}
 			else{//tie
-				
+				System.out.println("tie");
 			}
 		}
 		else if (player.getValue()<=21){//dealer bust,player wins
-			
+			System.out.println("player wins by default");
 		}
 		else{//player bust, dealer wins
-			
+			System.out.println("dealer wins by default");
 		}
 			
 	}

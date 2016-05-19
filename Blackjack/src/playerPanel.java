@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 public class playerPanel extends JPanel implements ActionListener{
 	private Table table;
 	private Hand player;
+	private JButton hit;
 	public playerPanel(Table table){
 		player=table.getPlayer();
 		this.table=table;
@@ -18,11 +19,20 @@ public class playerPanel extends JPanel implements ActionListener{
 		buildBoard();
 	}
 	public void buildBoard(){
-		JButton hit = new JButton("hit");
+		hit = new JButton("hit");
 		hit.setActionCommand("hit");
 		hit.setBackground(Color.white);
 		hit.addActionListener(this);
 		this.add(hit, BorderLayout.PAGE_END);
+		
+		JButton stay = new JButton("stay");
+		stay.setActionCommand("stay");
+		stay.setBackground(Color.white);
+		stay.addActionListener(this);
+		this.add(stay, BorderLayout.PAGE_END);
+	}
+	public void setHitVisibility(Boolean temp){
+		hit.setVisible(temp);
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -31,10 +41,16 @@ public class playerPanel extends JPanel implements ActionListener{
 		JButton hited=((JButton)hitClicked);
 		if(hited.getActionCommand().equals("hit")){
 			player.hit();
-			//table.printStatus();
+		}
+			Object stayClicked = arg0.getSource();
+			JButton stayed=((JButton)stayClicked);
+			if(stayed.getActionCommand().equals("stay")){
+				player.stay();
+			
 			
 		}
 		
 	}
 
 }
+

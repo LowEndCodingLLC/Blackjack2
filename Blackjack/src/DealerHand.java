@@ -9,7 +9,7 @@ public class DealerHand extends Hand {
 		while (this.getValue()<17){
 			this.hit();
 		}
-		if (this.getValue()<21)
+		if (this.getValue()>21)
 			this.bust();
 		table.determineWinner();
 		
