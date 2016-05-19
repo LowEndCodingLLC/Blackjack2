@@ -19,6 +19,7 @@ public class Hand extends ArrayList<Card>{
 	}
 	public void setCanHit(boolean temp){
 		this.canHit=temp;
+		table.getPlayerPanel().setHitVisibility(temp);
 	}
 	public boolean add(Card temp){
 		super.add(temp);
@@ -55,23 +56,24 @@ public class Hand extends ArrayList<Card>{
 		this.add(drawPile.remove(0),true);
 		if (this.getValue()>21)
 			this.bust();
-		}
+		
 		if (this.getValue()==21)
-			canHit=false;
+			this.setCanHit(false);
 		table.repaint();
 		table.printStatus();
+		}
 	}
 	public void stay(){
-		canHit=false;
+		this.setCanHit(false);
 		//dealer.resolveHand();
 	}
 	public void bust(){
-		canHit=false;
+		this.setCanHit(false);
 		//dealer.resolveHand();
 	}
 	
 	public void dealersTurn(){
-		canHit=false;
+		this.setCanHit(false);
 		dealer.resolveHand();
 	}
 	public void print() {

@@ -9,8 +9,12 @@ public class Table extends JPanel{
 	private Deck drawPile=new Deck(this);
 	private DealerHand dealer=new DealerHand(this);
 	private Hand player=new Hand(this);
+	private GameWindow gameWindow;
+	private playerPanel playerPanel;
 
-	public Table(){
+	public Table(GameWindow gameWindow){
+		this.gameWindow=gameWindow;
+		this.playerPanel=this.gameWindow.getPlayerPanel();
 		this.setVisible(true);
 		this.setBackground(Color.green);
 	
@@ -23,6 +27,9 @@ public class Table extends JPanel{
 	}
 	public Hand getPlayer(){
 		return player;
+	}
+	public playerPanel getPlayerPanel(){
+		return playerPanel;
 	}
 	public void startGame(){
 		

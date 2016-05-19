@@ -3,7 +3,8 @@ import javax.swing.JPanel;
 
 
 public class GameWindow extends JFrame{
-	private Table table=new Table();
+	
+	private Table table=new Table(this);
 	private playerPanel player = new playerPanel(table);
 	public GameWindow(){
 		setTitle("Blackjack");
@@ -16,6 +17,9 @@ public class GameWindow extends JFrame{
 	}
 	public Table getTable(){
 		return table;
+	}
+	public playerPanel getPlayerPanel(){
+		return player;
 	}
 	
 }
