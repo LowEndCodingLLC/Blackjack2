@@ -2,8 +2,6 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class Hand extends ArrayList<Card> {
-	private boolean canHit = false;
-
 	public Hand() {
 
 	}
@@ -14,9 +12,6 @@ public class Hand extends ArrayList<Card> {
 		return true;
 	}
 
-	public void setCanHit(boolean temp) {
-		this.canHit = temp;
-	}
 
 	public boolean add(Card temp) {
 		super.add(temp);
@@ -56,5 +51,6 @@ public class Hand extends ArrayList<Card> {
 		}
 		
 	}
+
 
 }
