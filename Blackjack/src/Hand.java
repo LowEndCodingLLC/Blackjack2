@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Hand extends ArrayList<Card> {
 	public Hand() {
-
+		System.out.println("handexists");
 	}
 
 	public boolean add(Card temp, Boolean faceUp) {

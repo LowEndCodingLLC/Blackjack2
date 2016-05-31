@@ -1,10 +1,11 @@
 
 public class Dealer extends Player {
-	private User user = new User(this);
+	private User user;
 	private Deck drawpile = new Deck();
 	private GamePanel panel;
 	public Dealer(){
 		super();
+		user= new User(this);
 		//this.panel=panel;
 		super.myDealer=this;
 		startGame();
@@ -34,6 +35,7 @@ public class Dealer extends Player {
 		
 	}
 	public User getUser(){
+		System.out.println("get");
 		return user;
 	}
 	public void printStatus() {

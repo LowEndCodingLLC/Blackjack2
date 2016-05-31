@@ -20,7 +20,7 @@ public class UserPanel extends JPanel implements ActionListener {
 	public void attachUser(User user){
 		this.user=user;
 	}
-	public void buildBoard() {
+	/*public void buildBoard() {
 		this.setLayout(null);
 		hit = new JButton("hit");
 		hit.setActionCommand("hit");
@@ -33,14 +33,14 @@ public class UserPanel extends JPanel implements ActionListener {
 		stay.setBackground(Color.white);
 		stay.addActionListener(this);
 		//this.add(stay, 100,100);
-	}
+	}*/
 
 	public void setHitVisibility(Boolean temp) {
 		hit.setVisible(temp);
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+/*	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		Object hitClicked = arg0.getSource();
 		JButton hited = ((JButton) hitClicked);
@@ -54,7 +54,7 @@ public class UserPanel extends JPanel implements ActionListener {
 		if (stayed.getActionCommand().equals("stay")) {
 			user.stay();
 
-		}
+		}*/
 
 	}
 }
