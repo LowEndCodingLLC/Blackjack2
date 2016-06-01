@@ -1,3 +1,5 @@
+import java.awt.Graphics;
+
 
 public abstract class Player {
 	Hand hand=new Hand();
@@ -5,7 +7,7 @@ public abstract class Player {
 	Deck drawpile;
 	private boolean canHit = false;
 	public Player(){
-		
+		System.out.println("hand in player constructor:"+hand);
 	}
 	
 	public void setCanHit(boolean temp) {
@@ -15,6 +17,7 @@ public abstract class Player {
 		return canHit;
 	}
 	public Hand getHand(){
+		System.out.println(hand);
 		return hand;
 	}
 	public void hit(){

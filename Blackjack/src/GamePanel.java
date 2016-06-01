@@ -1,56 +1,61 @@
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class GamePanel extends JPanel implements ActionListener {
-	private Dealer thedealer;
+public class GamePanel extends JPanel /*implements ActionListener*/ {
+	private Dealer dealer;
 	private User user;
 	private JButton hit;
 	private JButton stay;
+	private UserPanel userPanel=new UserPanel(this);
+	
 
 	public GamePanel(Dealer dealer) {
-		this.thedealer = dealer;
+		this.dealer = dealer;
+		this.user=dealer.getUser();
 		System.out.println("GamePanel constructor parameter"+dealer);
-		System.out.println("GamePanel constructor"+this.thedealer);
-		//System.out.println(this.dealer);
-		//this.user = this.thedealer.getUser();
+		System.out.println("GamePanel constructor"+this.dealer);
 		this.setBackground(Color.green);
+		this.add(userPanel);
 		this.setVisible(true);
 	}
 
 	public void attachDealer(Dealer dealer) {
-		this.thedealer = dealer;
+		this.dealer = dealer;
+	}
+	public Dealer getDealer(){
+		return dealer;
 	}
 
 	public void paintComponent(Graphics g) {
-		//System.out.println(thedealer);
+		
 		super.paintComponent(g);// paints default background
-		(thedealer.getHand()).paintHand(g);
-		(user.getHand()).paintHand(g);
-
+		(dealer.getHand()).paintHand(g,10,100);
+		user.getHand().paintHand(g,10,300);
 	}
 
-	public void buildBoard() {
-		this.setLayout(null);
+	/*public void buildBoard() {
+		this.setLayout(new GridLayout(1,2,10,10));
 		hit = new JButton("hit");
 		hit.setActionCommand("hit");
 		hit.setBackground(Color.white);
 		hit.addActionListener(this);
-		this.add(hit, 0, 0);
+		this.add(hit);
 
 		stay = new JButton("stay");
 		stay.setActionCommand("stay");
 		stay.setBackground(Color.white);
 		stay.addActionListener(this);
-		this.add(stay, 100, 100);
-	}
+		this.add(stay);
+	}*/
 
-	@Override
+	/*@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		Object hitClicked = arg0.getSource();
@@ -66,6 +71,6 @@ public class GamePanel extends JPanel implements ActionListener {
 			user.stay();
 
 		}
-	}
+	}*/
 
 }

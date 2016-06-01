@@ -45,9 +45,9 @@ public class Hand extends ArrayList<Card> {
 			System.out.println(this.get(i).toString());
 		}
 	}
-	public void paintHand(Graphics g){
+	public void paintHand(Graphics g,int startx,int starty){
 		for (int i =0;i<this.size();i++){
-			this.get(i).paintCard(g, (i*120)+10, 300);
+			this.get(i).paintCard(g, (i*120)+startx, starty);
 		}
 		
 	}
