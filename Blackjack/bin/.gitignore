@@ -1,3 +1,12 @@
 /Card.class
 /DealerHand.class
 /Deck.class
+/Controller.class
+/PlayerPanel.class
+/CardPanel.class
+/GamePanel.class
+/Player.class
+/Dealer.class
+/User.class
+/UserPanel.class
+/Game.class

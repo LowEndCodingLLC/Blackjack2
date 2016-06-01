@@ -6,13 +6,13 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class playerPanel extends JPanel implements ActionListener{
-	private Table table;
-	private Hand player;
+public class UserPanel extends JPanel implements ActionListener{
+	
+	private GamePanel gamePanel;
 	private JButton hit;
-	public playerPanel(Table table){
-		player=table.getPlayer();
-		this.table=table;
+	public UserPanel(GamePanel gamePanel){
+		this.gamePanel=gamePanel;
+		
 		this.setVisible(true);
 		this.setSize(100,200);
 		
@@ -40,12 +40,12 @@ public class playerPanel extends JPanel implements ActionListener{
 		Object hitClicked = arg0.getSource();
 		JButton hited=((JButton)hitClicked);
 		if(hited.getActionCommand().equals("hit")){
-			player.hit();
+			//player.hit();
 		}
 			Object stayClicked = arg0.getSource();
 			JButton stayed=((JButton)stayClicked);
 			if(stayed.getActionCommand().equals("stay")){
-				player.stay();
+				//player.stay();
 			
 			
 		}
@@ -53,4 +53,3 @@ public class playerPanel extends JPanel implements ActionListener{
 	}
 
 }
-

@@ -3,23 +3,28 @@ import javax.swing.JPanel;
 
 
 public class GameWindow extends JFrame{
+	private Dealer dealer;
+	private GamePanel cardPanel;
+
 	
-	private Table table=new Table(this);
-	private playerPanel player = new playerPanel(table);
-	public GameWindow(){
+	public GameWindow(Dealer dealer){
+	
+		
+		this.dealer=dealer;	
+		cardPanel= new GamePanel(dealer);
+		System.out.println("game window constructor parameter"+dealer);
+		System.out.println("game window constructor"+this.dealer);
 		setTitle("Blackjack");
 		setBounds(0,0,1000,600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		add(table);
+		add(cardPanel);
 		setResizable(false);
 		setVisible(true);
-		this.getContentPane().add(player);
+		//this.getContentPane().add(userPanel);
 	}
-	public Table getTable(){
-		return table;
+	public GamePanel getGamePanel(){
+		return cardPanel;
 	}
-	public playerPanel getPlayerPanel(){
-		return player;
-	}
+	
 	
 }
