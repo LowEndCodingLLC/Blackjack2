@@ -10,9 +10,11 @@ public class UserPanel extends JPanel implements ActionListener{
 	
 	private GamePanel gamePanel;
 	private JButton hit;
+	private JButton stay;
+	private String displayString="";
 	public UserPanel(GamePanel gamePanel){
 		this.gamePanel=gamePanel;
-		
+		this.setBackground(Color.BLACK);
 		this.setVisible(true);
 		this.setSize(100,200);
 		
@@ -25,14 +27,16 @@ public class UserPanel extends JPanel implements ActionListener{
 		hit.addActionListener(this);
 		this.add(hit, BorderLayout.PAGE_END);
 		
-		JButton stay = new JButton("stay");
+		stay = new JButton("stay");
 		stay.setActionCommand("stay");
 		stay.setBackground(Color.white);
 		stay.addActionListener(this);
 		this.add(stay, BorderLayout.PAGE_END);
 	}
 	public void setHitVisibility(Boolean temp){
-		hit.setVisible(temp);
+		repaint();
+		//hit.setVisible(temp);
+		//stay.setVisible(temp);
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -40,15 +44,22 @@ public class UserPanel extends JPanel implements ActionListener{
 		Object hitClicked = arg0.getSource();
 		JButton hited=((JButton)hitClicked);
 		if(hited.getActionCommand().equals("hit")){
-			//player.hit();
+			gamePanel.getDealer().getUser().hit();
+			gamePanel.repaint();
 		}
 			Object stayClicked = arg0.getSource();
 			JButton stayed=((JButton)stayClicked);
 			if(stayed.getActionCommand().equals("stay")){
-				//player.stay();
-			
+				gamePanel.getDealer().getUser().stay();
+				gamePanel.repaint();
 			
 		}
+		
+	}
+public void paintComponent(Graphics g) {
+		super.paintComponent(g);// paints default background
+		g.setColor(Color.RED);
+		g.drawString(displayString, 475, 25);
 		
 	}
 

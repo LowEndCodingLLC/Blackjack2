@@ -7,7 +7,7 @@ public abstract class Player {
 	Deck drawpile;
 	private boolean canHit = false;
 	public Player(){
-		System.out.println("hand in player constructor:"+hand);
+		
 	}
 	
 	public void setCanHit(boolean temp) {
@@ -17,7 +17,7 @@ public abstract class Player {
 		return canHit;
 	}
 	public Hand getHand(){
-		System.out.println(hand);
+		
 		return hand;
 	}
 	public void hit(){
@@ -35,12 +35,17 @@ public abstract class Player {
 		this.endTurn();
 	}
 	public void stay(){
+		if (canHit){
 		this.setCanHit(false);
 		endTurn();
+		}
 	}
 	public abstract void endTurn();
 	public void take(Card card){
 		hand.add(card);
+	}
+	public void take(Card card, boolean faceUp){
+		hand.add(card,faceUp);
 	}
 	
 	public void printHand(){

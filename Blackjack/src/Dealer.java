@@ -11,12 +11,15 @@ public class Dealer extends Player {
 		startGame();
 	}
 	public void resolveHand(){
+		System.out.println("resolveHand");
 		setCanHit(true);
 		while (hand.getValue()<17){
 			this.hit();
 		}
-		if (hand.getValue()>21)
+		if (hand.getValue()>21){
+			
 			bust();
+		}
 		else
 			endTurn();
 		
@@ -24,18 +27,21 @@ public class Dealer extends Player {
 	public void dealCard(Player recipient){
 		recipient.take(drawpile.remove(0));
 	}
+	public void dealCard(Player recipient,boolean faceUp){
+		recipient.take(drawpile.remove(0),faceUp);
+	}
 	public void startGame() {
 
 		dealCard(user);
 		dealCard(user);
-		dealCard(this);
+		dealCard(this,false);
 		dealCard(this);
 		printStatus();
 		user.setCanHit(true);
 		
 	}
 	public User getUser(){
-		System.out.println("get");
+		
 		return user;
 	}
 	public void printStatus() {
@@ -60,6 +66,8 @@ public class Dealer extends Player {
 			} else {// tie
 				System.out.println("tie");
 			}
+		} else if (user.getScore() >21&&this.getScore()>21) {// everyone bust
+			System.out.println("everyone loses");
 		} else if (user.getScore() <= 21) {// dealer bust,player wins
 			System.out.println("player wins by default");
 		} else {// player bust, dealer wins
@@ -70,6 +78,9 @@ public class Dealer extends Player {
 	@Override
 	public void endTurn() {
 		// TODO Auto-generated method stub
+		for (Card card:hand){
+			card.setFaceUp(true);
+		}
 		determineWinner();
 	}
 }

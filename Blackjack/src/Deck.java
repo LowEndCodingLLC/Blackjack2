@@ -48,7 +48,7 @@ public class Deck extends ArrayList<Card> {
 										// original and add to end of temp
 
 		}
-		
+
 		for (int i = 0; i < 52; i++) {
 			this.add(temp.get(i));// copy temp back to original
 		}
