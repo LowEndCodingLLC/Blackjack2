@@ -11,13 +11,15 @@ public class UserPanel extends JPanel implements ActionListener{
 	private GamePanel gamePanel;
 	private JButton hit;
 	private JButton stay;
+	private JButton newGame;
 	private String displayString="";
 	public UserPanel(GamePanel gamePanel){
 		this.gamePanel=gamePanel;
 		this.setBackground(Color.BLACK);
 		this.setVisible(true);
-		this.setSize(100,200);
-		
+		//this.setSize(100,200);
+		this.setLayout(null);
+		 this.setPreferredSize(new Dimension(1000, 40));
 		buildBoard();
 	}
 	public void buildBoard(){
@@ -25,18 +27,34 @@ public class UserPanel extends JPanel implements ActionListener{
 		hit.setActionCommand("hit");
 		hit.setBackground(Color.white);
 		hit.addActionListener(this);
+		hit.setBounds(400,5,100,30);
 		this.add(hit, BorderLayout.PAGE_END);
 		
 		stay = new JButton("stay");
 		stay.setActionCommand("stay");
 		stay.setBackground(Color.white);
 		stay.addActionListener(this);
+		stay.setBounds(550,5,100,30);
 		this.add(stay, BorderLayout.PAGE_END);
+		
+		
+		newGame = new JButton("Next Game");
+		newGame.setActionCommand("newGame");
+		newGame.setBackground(Color.white);
+		newGame.addActionListener(this);
+		newGame.setBounds(850,5,100,30);
+		this.add(newGame);
+		newGame.setVisible(false);
 	}
 	public void setHitVisibility(Boolean temp){
-		repaint();
-		//hit.setVisible(temp);
-		//stay.setVisible(temp);
+		//displayString="hello";
+		//repaint();
+		hit.setVisible(temp);
+		stay.setVisible(temp);
+		newGame.setVisible(!temp);
+	}
+	public void setDisplayString(String string){
+		displayString=string;
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -54,12 +72,20 @@ public class UserPanel extends JPanel implements ActionListener{
 				gamePanel.repaint();
 			
 		}
+			Object newGameClicked = arg0.getSource();
+			JButton newGamed=((JButton)newGameClicked);
+			if(newGamed.getActionCommand().equals("newGame")){
+				gamePanel.getDealer().newGame();
+			
+		}
+		
 		
 	}
 public void paintComponent(Graphics g) {
 		super.paintComponent(g);// paints default background
-		g.setColor(Color.RED);
-		g.drawString(displayString, 475, 25);
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
+		g.drawString(displayString, 400, 30);
 		
 	}
 
