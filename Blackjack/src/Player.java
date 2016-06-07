@@ -34,6 +34,9 @@ public abstract class Player {
 		this.setCanHit(false);
 		this.endTurn();
 	}
+	public void clearHand(){
+		hand.clear();
+	}
 	public void stay(){
 		if (canHit){
 		this.setCanHit(false);

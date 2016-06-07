@@ -24,6 +24,17 @@ public class Dealer extends Player {
 			endTurn();
 		
 	}
+	public void newGame(){
+		drawpile= new Deck();
+		this.clearHand();
+		user.clearHand();
+		panel.getUserPanel().setDisplayString("");
+		panel.repaint();
+		this.startGame();
+	}
+	public void attachGamePanel(GamePanel panel){
+		this.panel=panel;
+	}
 	public void dealCard(Player recipient){
 		recipient.take(drawpile.remove(0));
 	}
@@ -58,22 +69,23 @@ public class Dealer extends Player {
 		System.out.println("-------------------------");
 	}
 	public void determineWinner() {
+		String temp="";
 		if (user.getScore() <= 21 && this.getScore() <= 21) {
 			if (user.getScore() > this.getScore()) {// player wins
-				System.out.println("player wins");
+				temp="You Win!";
 			} else if (user.getScore() < this.getScore()) {// dealer wins
-				System.out.println("dealer wins");
+				temp="You Lose";
 			} else {// tie
-				System.out.println("tie");
+				temp="It's a tie";
 			}
 		} else if (user.getScore() >21&&this.getScore()>21) {// everyone bust
-			System.out.println("everyone loses");
+			temp="Everyone busts. No winner.";
 		} else if (user.getScore() <= 21) {// dealer bust,player wins
-			System.out.println("player wins by default");
+			temp="You Win!";
 		} else {// player bust, dealer wins
-			System.out.println("dealer wins by default");
+			temp="You Lose";
 		}
-
+		panel.getUserPanel().setDisplayString(temp);
 	}
 	@Override
 	public void endTurn() {

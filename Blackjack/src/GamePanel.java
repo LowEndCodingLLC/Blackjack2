@@ -38,11 +38,14 @@ public class GamePanel extends JPanel  {
 		this.setVisible(true);
 	}
 
-	public void attachDealer(Dealer dealer) {
+	/*public void attachDealer(Dealer dealer) {
 		this.dealer = dealer;
-	}
+	}*/
 	public Dealer getDealer(){
 		return dealer;
+	}
+	public UserPanel getUserPanel(){
+		return userPanel;
 	}
 
 	public void paintComponent(Graphics g) {

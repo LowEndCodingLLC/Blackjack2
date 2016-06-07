@@ -18,7 +18,7 @@ public class GameWindow extends JFrame{
 		add(cardPanel);
 		setResizable(false);
 		setVisible(true);
-		//this.getContentPane().add(userPanel);
+		
 	}
 	public GamePanel getGamePanel(){
 		return cardPanel;
