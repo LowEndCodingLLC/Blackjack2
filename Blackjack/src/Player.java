@@ -5,6 +5,7 @@ public abstract class Player {
 	Hand hand=new Hand();
 	Dealer myDealer;
 	Deck drawpile;
+	
 	private boolean canHit = false;
 	public Player(){
 		
@@ -37,6 +38,9 @@ public abstract class Player {
 	public void bust(){
 		this.setCanHit(false);
 		this.endTurn();
+	}
+	public void clearHand(){
+		hand.clear();
 	}
 	public void stay(){
 		if (canHit){
