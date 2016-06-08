@@ -5,6 +5,7 @@ public abstract class Player {
 	Hand hand=new Hand();
 	Dealer myDealer;
 	Deck drawpile;
+	
 	private boolean canHit = false;
 	public Player(){
 		
