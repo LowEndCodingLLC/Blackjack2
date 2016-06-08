@@ -1,16 +1,19 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 import java.awt.*;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class UserPanel extends JPanel implements ActionListener{
+public class UserPanel extends JPanel implements ActionListener, KeyListener{
 	
 	private GamePanel gamePanel;
 	private JButton hit;
 	private JButton stay;
+	private JTextField hitBox;
 	private String displayString="";
 	public UserPanel(GamePanel gamePanel){
 		this.gamePanel=gamePanel;
@@ -32,6 +35,11 @@ public class UserPanel extends JPanel implements ActionListener{
 		stay.setBackground(Color.white);
 		stay.addActionListener(this);
 		this.add(stay, BorderLayout.PAGE_END);
+		
+		hitBox = new JTextField(10);
+		this.add(hitBox,BorderLayout.PAGE_END);
+		hitBox.setBackground(Color.green);
+		hitBox.addKeyListener(this);
 	}
 	public void setHitVisibility(Boolean temp){
 		repaint();
@@ -62,5 +70,22 @@ public void paintComponent(Graphics g) {
 		g.drawString(displayString, 475, 25);
 		
 	}
+@Override
+public void keyPressed(KeyEvent arg0) {
+	// TODO Auto-generated method stub
+    if (arg0.getKeyCode()==KeyEvent.VK_ENTER){
+    	
+    }
+}
+@Override
+public void keyReleased(KeyEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void keyTyped(KeyEvent arg0) {
+	// TODO Auto-generated method stub
+	
+}
 
 }
