@@ -13,9 +13,10 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 	private GamePanel gamePanel;
 	private JButton hit;
 	private JButton stay;
-	private JTextField hitBox;
+	private JTextField betBox;
 	private JButton newGame;
 	private String displayString="";
+	Font x = new Font("Comic Sans MS",Font.PLAIN,12);
 	public UserPanel(GamePanel gamePanel){
 		this.gamePanel=gamePanel;
 		this.setBackground(Color.BLACK);
@@ -40,10 +41,13 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 		stay.setBounds(550,5,100,30);
 		this.add(stay, BorderLayout.PAGE_END);
 
-		hitBox = new JTextField(10);
-		this.add(hitBox,BorderLayout.PAGE_END);
-		hitBox.setBackground(Color.green);
-		hitBox.addKeyListener(this);
+		betBox = new JTextField("Enter bet amount",5);
+		this.add(betBox,BorderLayout.PAGE_END);
+		betBox.setBounds(550,5,100,30);
+		betBox.setBackground(Color.WHITE);
+		betBox.setFont(x);
+		betBox.addKeyListener(this);
+		betBox.setVisible(false);
 		
 		newGame = new JButton("Next Game");
 		newGame.setActionCommand("newGame");
@@ -54,11 +58,10 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 		newGame.setVisible(false);
 	}
 	public void setHitVisibility(Boolean temp){
-		//displayString="hello";
-		//repaint();
 		hit.setVisible(temp);
 		stay.setVisible(temp);
 		newGame.setVisible(!temp);
+		betBox.setVisible(!temp);
 	}
 	public void setDisplayString(String string){
 		displayString=string;
@@ -98,8 +101,12 @@ public void paintComponent(Graphics g) {
 @Override
 public void keyPressed(KeyEvent arg0) {
 	// TODO Auto-generated method stub
+	// When Enter is pressed, the text in the JTextField named hitBox is parsed for integers and fed into the bet method in the gamePanel class.
     if (arg0.getKeyCode()==KeyEvent.VK_ENTER){
-    	
+    	String s=betBox.getText();
+    	int i=Integer.parseInt(s);
+    	System.out.println(i);
+    	gamePanel.getUser().bet(i);
     }
 }
 @Override

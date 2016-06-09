@@ -69,6 +69,8 @@ public class Dealer extends Player {
 		System.out.println("Player Hand:");
 		user.printHand();
 		System.out.println("Player score: " + user.getScore());
+		System.out.println("Player chipPile:"+user.getChipPile());
+		System.out.println("Player chipsBet:"+user.getChipsBet());
 		System.out.println("-------------------------");
 		System.out.println("Dealer Hand:");
 		this.printHand();
