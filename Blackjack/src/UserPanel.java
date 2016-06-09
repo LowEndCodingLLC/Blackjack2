@@ -47,11 +47,13 @@ public class UserPanel extends JPanel implements ActionListener{
 		newGame.setVisible(false);
 	}
 	public void setHitVisibility(Boolean temp){
-		//displayString="hello";
-		//repaint();
+		
 		hit.setVisible(temp);
 		stay.setVisible(temp);
-		newGame.setVisible(!temp);
+		
+	}
+	public void setNewGameVisibility(Boolean temp){
+		newGame.setVisible(temp);
 	}
 	public void setDisplayString(String string){
 		displayString=string;

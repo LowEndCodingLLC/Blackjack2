@@ -2,6 +2,7 @@ public class Dealer extends Player {
 	private User user;
 	private Deck drawpile = new Deck();
 	private GamePanel panel;
+	private Boolean gameOver=false;
 
 	public Dealer() {
 		super();
@@ -24,16 +25,26 @@ public class Dealer extends Player {
 			endTurn();
 
 	}
-
+	public GamePanel getPanel(){
+		return panel;
+	}
 	public void newGame() {
 		drawpile = new Deck();
 		this.clearHand();
 		user.clearHand();
 		panel.getUserPanel().setDisplayString("");
 		panel.repaint();
-		this.startGame();
+		user.askForBet();
+		dealCard(user);
+		dealCard(user);
+		dealCard(this, false);
+		dealCard(this);
+		printStatus();
+		panel.repaint();
 	}
-
+	public boolean getGameOver(){
+		return gameOver;
+	}
 	public void attachGamePanel(GamePanel panel) {
 		this.panel = panel;
 	}
@@ -45,15 +56,18 @@ public class Dealer extends Player {
 	public void dealCard(Player recipient, boolean faceUp) {
 		recipient.take(drawpile.remove(0), faceUp);
 	}
-
+//	public void repaintPanel(){
+//		panel.repaint();
+//	}
 	public void startGame() {
-
+		user.askForBet();
 		dealCard(user);
 		dealCard(user);
 		dealCard(this, false);
 		dealCard(this);
 		printStatus();
-		user.askForBet();
+		
+		
 
 	}
 
@@ -81,27 +95,36 @@ public class Dealer extends Player {
 		if (user.getScore() <= 21 && this.getScore() <= 21) {
 			if (user.getScore() > this.getScore()) {// player wins
 				temp = "You Win!";
-				user.chipMultiplier(0);
+				if(user.getScore()==21)
+					user.chipMultiplier(1.5);
+				else
+					user.chipMultiplier(1);
 			} else if (user.getScore() < this.getScore()) {// dealer wins
 				temp = "You Lose";
-				user.chipMultiplier(0);
+				user.clearChipsBet();
 			} else {// tie
 				temp = "It's a tie";
-				user.chipMultiplier(1);
+				user.chipMultiplier(0);
 			}
 		} else if (user.getScore() > 21 && this.getScore() > 21) {// everyone
 																	// bust
 			temp = "Everyone busts. No winner.";
-			user.chipMultiplier(1);
+			user.chipMultiplier(0);
 		} else if (user.getScore() <= 21) {// dealer bust,player wins
 			temp = "You Win!";
 			if(user.getScore()==21)
-				user.chipMultiplier(2.5);
+				user.chipMultiplier(1.5);
+			else
+				user.chipMultiplier(1);
 		} else {// player bust, dealer wins
 			temp = "You Lose";
-			user.chipMultiplier(0);
+			user.clearChipsBet();
 		}
-		
+		if (user.getChipPile()==0){
+			temp="You Lose. Game Over";
+			gameOver=true;
+			
+		}
 		panel.getUserPanel().setDisplayString(temp);
 	}
 

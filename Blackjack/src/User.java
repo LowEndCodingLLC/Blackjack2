@@ -1,3 +1,4 @@
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 
@@ -11,7 +12,11 @@ public class User extends Player {
 		
 	}
 	public void askForBet(){
-		//chipsBet=JOptionPane.showInputDialog(null, chipPile, null, chipPile);
+		JDialog dialog=new JDialog();
+		
+	String chipsBetString = (String)JOptionPane.showInputDialog(dialog,"You have "+chipPile+" chips. How many would you like to bet?","Manage Bet",JOptionPane.PLAIN_MESSAGE,null,null,"Type numeric value here");
+	bet(Integer.parseInt(chipsBetString));
+	
 	}
 	public void bet(int betAmount){
 		if (betAmount>chipPile)
@@ -19,12 +24,21 @@ public class User extends Player {
 		else{
 			chipPile-=betAmount;
 			chipsBet=betAmount;
+			System.out.println("setcanhittrue");
 			this.setCanHit(true);
+			
 		}
 		
 	}
+	public int getChipPile(){
+		return chipPile;
+	}
 	public void chipMultiplier(double multiplier){
+		chipPile+=chipsBet;
 		chipPile+=(int)(chipsBet*multiplier)/1;
+		clearChipsBet();
+	}
+	public void clearChipsBet(){
 		chipsBet=0;
 	}
 	

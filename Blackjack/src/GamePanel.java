@@ -49,8 +49,12 @@ public class GamePanel extends JPanel  {
 	}
 
 	public void paintComponent(Graphics g) {
-		
-		userPanel.setHitVisibility(dealer.getUser().getCanHit());
+		if (!dealer.getGameOver()){
+			userPanel.setHitVisibility(dealer.getUser().getCanHit());
+			userPanel.setNewGameVisibility(!dealer.getUser().getCanHit());
+		}
+		else
+			userPanel.setNewGameVisibility(false);
 		
 		super.paintComponent(g);// paints default background
 		g.drawImage(bg, 0, 0, null);
