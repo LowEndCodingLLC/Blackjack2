@@ -43,7 +43,7 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 
 		betBox = new JTextField("Enter bet amount",5);
 		this.add(betBox,BorderLayout.PAGE_END);
-		betBox.setBounds(550,5,100,30);
+		betBox.setBounds(750,5,100,30);
 		betBox.setBackground(Color.WHITE);
 		betBox.setFont(x);
 		betBox.addKeyListener(this);
@@ -85,6 +85,10 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 			Object newGameClicked = arg0.getSource();
 			JButton newGamed=((JButton)newGameClicked);
 			if(newGamed.getActionCommand().equals("newGame")){
+				String s=betBox.getText();
+		    	int i=Integer.parseInt(s);
+		    	System.out.println(i);
+		    	gamePanel.getUser().bet(i);
 				gamePanel.getDealer().newGame();
 			
 		}
@@ -96,18 +100,20 @@ public void paintComponent(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
 		g.drawString(displayString, 400, 30);
-		
+		if(betBox.isVisible()==true){
+		g.drawString("Enter Bet Amount:", 450, 30);
+		}
 	}
 @Override
 public void keyPressed(KeyEvent arg0) {
 	// TODO Auto-generated method stub
 	// When Enter is pressed, the text in the JTextField named hitBox is parsed for integers and fed into the bet method in the gamePanel class.
-    if (arg0.getKeyCode()==KeyEvent.VK_ENTER){
-    	String s=betBox.getText();
-    	int i=Integer.parseInt(s);
-    	System.out.println(i);
-    	gamePanel.getUser().bet(i);
-    }
+ //   if (arg0.getKeyCode()==KeyEvent.VK_ENTER){
+ //   	String s=betBox.getText();
+ //   	int i=Integer.parseInt(s);
+ //   	System.out.println(i);
+ //   	gamePanel.getUser().bet(i);
+ //  }
 }
 @Override
 public void keyReleased(KeyEvent arg0) {
