@@ -32,6 +32,7 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 		hit.setBackground(Color.white);
 		hit.addActionListener(this);
 		hit.setBounds(400,5,100,30);
+		hit.setVisible(false);
 		this.add(hit, BorderLayout.PAGE_END);
 		
 		stay = new JButton("stay");
@@ -39,30 +40,51 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 		stay.setBackground(Color.white);
 		stay.addActionListener(this);
 		stay.setBounds(550,5,100,30);
+		stay.setVisible(false);
 		this.add(stay, BorderLayout.PAGE_END);
 
 		betBox = new JTextField("Enter bet amount",5);
 		this.add(betBox,BorderLayout.PAGE_END);
-		betBox.setBounds(550,5,100,30);
+		betBox.setBounds(745,5,100,30);
 		betBox.setBackground(Color.WHITE);
 		betBox.setFont(x);
 		betBox.addKeyListener(this);
-		betBox.setVisible(false);
+		betBox.setVisible(true);
 		
-		newGame = new JButton("Next Game");
+		newGame = new JButton("Deal");
 		newGame.setActionCommand("newGame");
 		newGame.setBackground(Color.white);
 		newGame.addActionListener(this);
 		newGame.setBounds(850,5,100,30);
 		this.add(newGame);
-		newGame.setVisible(false);
+		newGame.setVisible(true);
 	}
-	public void setHitVisibility(Boolean temp){
-		hit.setVisible(temp);
-		stay.setVisible(temp);
-		newGame.setVisible(!temp);
-		betBox.setVisible(!temp);
+	public void setConfiguration(int config){
+		if (config==1){//hit or stay
+			hit.setVisible(true);
+			stay.setVisible(true);
+			betBox.setVisible(false);
+			newGame.setVisible(false);
+		}
+		if (config==2){//Game over
+			hit.setVisible(false);
+			stay.setVisible(false);
+			betBox.setVisible(false);
+			newGame.setVisible(false);
+		}
+		if (config==3){//enter bet
+			hit.setVisible(false);
+			stay.setVisible(false);
+			newGame.setVisible(true);
+			betBox.setVisible(true);
+		}
 	}
+//	public void setHitVisibility(Boolean temp){
+//		hit.setVisible(temp);
+//		stay.setVisible(temp);
+//		newGame.setVisible(!temp);
+//		betBox.setVisible(!temp);
+//	}
 	public void setDisplayString(String string){
 		displayString=string;
 	}
@@ -95,7 +117,7 @@ public void paintComponent(Graphics g) {
 		super.paintComponent(g);// paints default background
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
-		g.drawString(displayString, 400, 30);
+		g.drawString(displayString, 300, 30);
 		
 	}
 @Override

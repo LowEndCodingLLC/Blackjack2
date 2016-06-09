@@ -2,6 +2,7 @@ public class Dealer extends Player {
 	private User user;
 	private Deck drawpile = new Deck();
 	private GamePanel panel;
+	private boolean gameOver;
 
 	public Dealer() {
 		super();
@@ -31,7 +32,11 @@ public class Dealer extends Player {
 		user.clearHand();
 		panel.getUserPanel().setDisplayString("");
 		panel.repaint();
-		this.startGame();
+		dealCard(user);
+		dealCard(user);
+		dealCard(this, false);
+		dealCard(this);
+		printStatus();
 	}
 
 	public void attachGamePanel(GamePanel panel) {
@@ -45,15 +50,12 @@ public class Dealer extends Player {
 	public void dealCard(Player recipient, boolean faceUp) {
 		recipient.take(drawpile.remove(0), faceUp);
 	}
-
+	public boolean getGameOver(){
+		return gameOver;
+	}
 	public void startGame() {
 
-		dealCard(user);
-		dealCard(user);
-		dealCard(this, false);
-		dealCard(this);
-		printStatus();
-		user.askForBet();
+		
 
 	}
 

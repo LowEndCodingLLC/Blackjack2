@@ -52,8 +52,14 @@ public class GamePanel extends JPanel  {
 	}
 
 	public void paintComponent(Graphics g) {
+		if (dealer.getGameOver())
+			userPanel.setConfiguration(2);
+		else if(dealer.getUser().getCanHit()){
+			userPanel.setConfiguration(1);
+		}
+		else
+			userPanel.setConfiguration(3);
 		
-		userPanel.setHitVisibility(dealer.getUser().getCanHit());
 		
 		super.paintComponent(g);// paints default background
 		g.drawImage(bg, 0, 0, null);
