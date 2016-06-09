@@ -69,6 +69,8 @@ public class Dealer extends Player {
 		System.out.println("Player Hand:");
 		user.printHand();
 		System.out.println("Player score: " + user.getScore());
+		System.out.println("Player chipPile:"+user.getChipPile());
+		System.out.println("Player chipsBet:"+user.getChipsBet());
 		System.out.println("-------------------------");
 		System.out.println("Dealer Hand:");
 		this.printHand();
@@ -89,8 +91,7 @@ public class Dealer extends Player {
 				temp = "It's a tie";
 				user.chipMultiplier(1);
 			}
-		} else if (user.getScore() > 21 && this.getScore() > 21) {// everyone
-																	// bust
+		} else if (user.getScore() > 21 && this.getScore() > 21) {// everyone bust
 			temp = "Everyone busts. No winner.";
 			user.chipMultiplier(1);
 		} else if (user.getScore() <= 21) {// dealer bust,player wins

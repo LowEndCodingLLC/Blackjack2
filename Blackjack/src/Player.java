@@ -10,7 +10,11 @@ public abstract class Player {
 	public Player(){
 		
 	}
-	
+	int pile = 10000;
+	public int bet(int pile){
+		
+		return 0;
+	}
 	public void setCanHit(boolean temp) {
 		this.canHit = temp;
 	}

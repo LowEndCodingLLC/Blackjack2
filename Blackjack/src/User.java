@@ -13,7 +13,7 @@ public class User extends Player {
 	public void askForBet(){
 		//chipsBet=JOptionPane.showInputDialog(null, chipPile, null, chipPile);
 	}
-	public void bet(int betAmount){
+	public int bet(int betAmount){
 		if (betAmount>chipPile)
 			this.askForBet();
 		else{
@@ -21,11 +21,18 @@ public class User extends Player {
 			chipsBet=betAmount;
 			this.setCanHit(true);
 		}
+		return betAmount;
 		
 	}
 	public void chipMultiplier(double multiplier){
 		chipPile+=(int)(chipsBet*multiplier)/1;
 		chipsBet=0;
+	}
+	public int getChipPile(){
+		return chipPile;
+	}
+	public int getChipsBet(){
+		return chipsBet;
 	}
 	
 	@Override

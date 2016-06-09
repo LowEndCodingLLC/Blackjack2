@@ -47,6 +47,9 @@ public class GamePanel extends JPanel  {
 	public UserPanel getUserPanel(){
 		return userPanel;
 	}
+	public User getUser(){
+		return user;
+	}
 
 	public void paintComponent(Graphics g) {
 		
