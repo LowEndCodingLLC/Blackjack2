@@ -43,7 +43,7 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 		stay.setVisible(false);
 		this.add(stay, BorderLayout.PAGE_END);
 
-		betBox = new JTextField("Enter bet amount",5);
+		betBox = new JTextField("",5);
 		this.add(betBox,BorderLayout.PAGE_END);
 
 		betBox.setBounds(745,5,100,30);
@@ -81,12 +81,7 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 			betBox.setVisible(true);
 		}
 	}
-//	public void setHitVisibility(Boolean temp){
-//		hit.setVisible(temp);
-//		stay.setVisible(temp);
-//		newGame.setVisible(!temp);
-//		betBox.setVisible(!temp);
-//	}
+
 	public void setDisplayString(String string){
 		displayString=string;
 	}
@@ -112,9 +107,10 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 				String s=betBox.getText();
 		    	int i=Integer.parseInt(s);
 		    	System.out.println(i);
-		    	gamePanel.getUser().bet(i);
-				gamePanel.getDealer().newGame();
-			
+		    	if (i<=gamePanel.getDealer().getUser().getChipPile()){
+		    		gamePanel.getUser().bet(i);
+		    		gamePanel.getDealer().newGame();
+		    	}
 		}
 		
 		
@@ -123,11 +119,14 @@ public void paintComponent(Graphics g) {
 		super.paintComponent(g);// paints default background
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
-
-		g.drawString(displayString, 300, 30);
+		g.drawString(""+gamePanel.getDealer().getUser().getChipPile(), 5, 30);
+		g.drawString(displayString, 75, 30);
 
 		if(betBox.isVisible()==true){
 		g.drawString("Enter Bet Amount:", 450, 30);
+		}
+		else if (hit.isVisible()){
+			g.drawString("Bet: "+gamePanel.getDealer().getUser().getChipsBet(), 850, 30);
 		}
 
 	}
