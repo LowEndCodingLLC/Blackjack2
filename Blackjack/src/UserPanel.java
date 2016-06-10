@@ -41,7 +41,7 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 		stay.setBounds(550,5,100,30);
 		this.add(stay, BorderLayout.PAGE_END);
 
-		betBox = new JTextField("Enter bet amount",5);
+		betBox = new JTextField("",5);
 		this.add(betBox,BorderLayout.PAGE_END);
 		betBox.setBounds(750,5,100,30);
 		betBox.setBackground(Color.WHITE);
