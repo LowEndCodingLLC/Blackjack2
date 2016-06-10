@@ -93,8 +93,7 @@ public class Dealer extends Player {
 				temp = "It's a tie";
 				user.chipMultiplier(1);
 			}
-		} else if (user.getScore() > 21 && this.getScore() > 21) {// everyone
-																	// bust
+		} else if (user.getScore() > 21 && this.getScore() > 21) {// everyone bust
 			temp = "Everyone busts. No winner.";
 			user.chipMultiplier(1);
 		} else if (user.getScore() <= 21) {// dealer bust,player wins

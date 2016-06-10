@@ -10,13 +10,9 @@ public class User extends Player {
 		
 		
 	}
-	public void askForBet(){
-		//chipsBet=JOptionPane.showInputDialog(null, chipPile, null, chipPile);
-	}
+	
 	public int bet(int betAmount){
-		if (betAmount>chipPile)
-			this.askForBet();
-		else{
+		if (!(betAmount>chipPile)){
 			chipPile-=betAmount;
 			chipsBet=betAmount;
 			this.setCanHit(true);
