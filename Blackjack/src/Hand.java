@@ -42,7 +42,7 @@ public class Hand extends ArrayList<Card> {
 	}
 	public void print() {
 		for (int i = 0; i < this.size(); i++) {
-			System.out.println(this.get(i).toString());
+			//System.out.println(this.get(i).toString());
 		}
 	}
 	public void paintHand(Graphics g,int startx,int starty){

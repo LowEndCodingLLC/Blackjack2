@@ -34,7 +34,7 @@ public class User extends Player {
 	@Override
 	public void endTurn() {
 		// TODO Auto-generated method stub
-		System.out.println("user end turn");
+		////System.out.println("user end turn");
 		myDealer.resolveHand();
 	}
 }

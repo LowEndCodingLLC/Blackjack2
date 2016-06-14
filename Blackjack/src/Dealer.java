@@ -67,19 +67,19 @@ public class Dealer extends Player {
 	}
 
 	public void printStatus() {
-		System.out.println("**************************");
-		System.out.println("Deck size: " + drawpile.size());
-		System.out.println("-------------------------");
-		System.out.println("Player Hand:");
+		////System.out.println("**************************");
+		////System.out.println("Deck size: " + drawpile.size());
+		////System.out.println("-------------------------");
+		////System.out.println("Player Hand:");
 		user.printHand();
-		System.out.println("Player score: " + user.getScore());
-		System.out.println("Player chipPile:" + user.getChipPile());
-		System.out.println("Player chipsBet:" + user.getChipsBet());
-		System.out.println("-------------------------");
-		System.out.println("Dealer Hand:");
+		////System.out.println("Player score: " + user.getScore());
+		////System.out.println("Player chipPile:" + user.getChipPile());
+		////System.out.println("Player chipsBet:" + user.getChipsBet());
+		////System.out.println("-------------------------");
+		////System.out.println("Dealer Hand:");
 		this.printHand();
-		System.out.println("Dealer score: " + this.getScore());
-		System.out.println("-------------------------");
+		////System.out.println("Dealer score: " + this.getScore());
+		////System.out.println("-------------------------");
 	}
 
 	public void determineWinner() {

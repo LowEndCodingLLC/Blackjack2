@@ -56,7 +56,7 @@ public class Deck extends ArrayList<Card> {
 
 	public void print() {
 		for (int i = 0; i < this.size(); i++) {
-			System.out.println(this.get(i).toString());
+			////System.out.println(this.get(i).toString());
 		}
 	}
 

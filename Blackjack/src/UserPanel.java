@@ -3,6 +3,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -16,6 +20,8 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 	private JTextField betBox;
 	private JButton newGame;
 	private String displayString="";
+	private Image pile;
+	private Image bet;
 	Font x = new Font("Comic Sans MS",Font.PLAIN,12);
 	public UserPanel(GamePanel gamePanel){
 		this.gamePanel=gamePanel;
@@ -24,6 +30,15 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 		//this.setSize(100,200);
 		this.setLayout(null);
 		 this.setPreferredSize(new Dimension(1000, 40));
+		 File temp = new File("pile.png");
+		 File temp2 = new File("bet.png");
+		 try {
+			pile = ImageIO.read(temp);
+			bet = ImageIO.read(temp2);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		buildBoard();
 	}
 	public void buildBoard(){
@@ -105,8 +120,9 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 			JButton newGamed=((JButton)newGameClicked);
 			if(newGamed.getActionCommand().equals("newGame")){
 				String s=betBox.getText();
+				betBox.setText("");
 		    	int i=Integer.parseInt(s);
-		    	System.out.println(i);
+		    	////System.out.println(i);
 		    	if (i<=gamePanel.getDealer().getUser().getChipPile()){
 		    		gamePanel.getUser().bet(i);
 		    		gamePanel.getDealer().newGame();
@@ -118,15 +134,22 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener{
 public void paintComponent(Graphics g) {
 		super.paintComponent(g);// paints default background
 		g.setColor(Color.WHITE);
-		g.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
-		g.drawString(""+gamePanel.getDealer().getUser().getChipPile(), 5, 30);
-		g.drawString(displayString, 75, 30);
-
+		
+		g.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+		g.drawImage(pile,0,0,null);
+		g.drawString(""+gamePanel.getDealer().getUser().getChipPile(), 50, 30);
+		if (displayString.length()>10)
+			g.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+		else
+			g.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
+		g.drawString(displayString, 125, 30);
+g.setFont(new Font("Bauhaus 93", Font.PLAIN, 30));
 		if(betBox.isVisible()==true){
-		g.drawString("Enter Bet Amount:", 450, 30);
+		g.drawString("Enter Bet Amount:", 500, 30);
 		}
 		else if (hit.isVisible()){
-			g.drawString("Bet: "+gamePanel.getDealer().getUser().getChipsBet(), 850, 30);
+			g.drawImage(bet,725,0,null);
+			g.drawString("Bet: "+gamePanel.getDealer().getUser().getChipsBet(), 800, 30);
 		}
 
 	}
@@ -137,7 +160,7 @@ public void keyPressed(KeyEvent arg0) {
  //   if (arg0.getKeyCode()==KeyEvent.VK_ENTER){
  //   	String s=betBox.getText();
  //   	int i=Integer.parseInt(s);
- //   	System.out.println(i);
+ //   	////System.out.println(i);
  //   	gamePanel.getUser().bet(i);
  //  }
 }
